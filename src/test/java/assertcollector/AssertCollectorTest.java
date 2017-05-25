@@ -25,14 +25,21 @@ public class AssertCollectorTest
                     throws IOException
     {
         ObjectMapper mapper = new ObjectMapper();
-        account = mapper.readValue( getClass().getClassLoader().getResource( "account.json" ), Account.class );
+        final String accountJsonFileName = "account.json";
+        account = mapper.readValue( getClass().getClassLoader().getResource( accountJsonFileName ), Account.class );
     }
 
+    /*
+        Below test verifies the JSON object presented in the /test/resources/account.json
+        The Account object has 3 bugs
+        The Goal is to capture all 3 bugs in single run & report all together
+     */
     @Test
     public void regressTheAccount_jsonObject()
     {
+        // ---- START the execution (your regression suite)
+
         // BUG with firstName. AssertCollector should capture the bug and should continue to capture more bugs
-        // Traditional Assert will fail at this point and will not continue to capture more bugs, but we have more bugs in the JSON object
         verifyThat( "First name should be valid", account.firstName, is( "valid" ) );
 
         verifyThat( "Last name should be valid", account.lastName, is( "valid" ) );
@@ -45,20 +52,25 @@ public class AssertCollectorTest
         // BUG with mustBeTrue, and should be captured by AssertCollector
         verifyThat( "MustBeTrue should be what it is", account.mustBeTrue, is( true ) );
 
-        // Total bugs captured by AssertCollector is 3 from Single Execution. Traditional assertions, e.g. Assert, would have only captured & reported bug with firstName
+        // ---- ENDS the execution
+
+        // Total bugs captured by AssertCollector should be 3 from above execution.
+        // Traditional assertions, e.g. Assert, would have only captured & reported only ONE bug with firstName
         assertThat( "AssertCollector should capture 3 bugs", AssertCollector.getNumberOfErrors(), is( 3 ) );
 
         //throwAnyFailures should report the detailed error messages with all 3 bugs
         try
         {
-            throwAnyFailures();
+            throwAnyFailures(); //throws all the errors captured during execution
         }
         catch ( Throwable e )
         {
             assertThat( e.getMessage().trim(),
-                            is( "Number of failure(s) : 3\n\nFirst name should be valid\nExpected: is \"valid\""
-                                            + "\n     but: was \"invalid\"\n\nUsername should be valid\nExpected: is \"valid\""
-                                            + "\n     but: was \"invalid\"\n\nMustBeTrue should be what it is\nExpected: is <true>"
+                            is( "Number of failure(s) : 3\n\n" + "First name should be valid\nExpected: is \"valid\""
+                                            + "\n     but: was \"invalid\"\n\n"
+                                            + "Username should be valid\nExpected: is \"valid\""
+                                            + "\n     but: was \"invalid\"\n\n"
+                                            + "MustBeTrue should be what it is\nExpected: is <true>"
                                             + "\n     but: was <false>" ) );
         }
     }
