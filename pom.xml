@@ -8,6 +8,10 @@
     <artifactId>veritythat</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -71,9 +75,6 @@
                 <groupId>org.eluder.coveralls</groupId>
                 <artifactId>coveralls-maven-plugin</artifactId>
                 <version>4.3.0</version>
-                <configuration>
-                    <repoToken>NKGTpC3kcLUPfy1s7jQYEMH2L8SMFge6d</repoToken>
-                </configuration>
             </plugin>
         </plugins>
     </build>
