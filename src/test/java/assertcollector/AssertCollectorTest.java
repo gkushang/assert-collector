@@ -29,11 +29,16 @@ public class AssertCollectorTest
         account = mapper.readValue( getClass().getClassLoader().getResource( accountJsonFileName ), Account.class );
     }
 
-    /*
-        Below test verifies the JSON object presented in the /test/resources/account.json
-        The Account object has 3 bugs
-        The Goal is to capture all 3 bugs in single run & report all together
-     */
+    //###################################################################################################################
+    //#                                                                                                                 #
+    //#     Below test verifies the JSON object presented in the /test/resources/account.json                           #
+    //#                                                                                                                 #
+    //#     The Account object has 3 bugs                                                                               #
+    //#                                                                                                                 #
+    //#     The Goal is to capture all 3 bugs in single run & report all together                                       #
+    //#                                                                                                                 #
+    //###################################################################################################################
+
     @Test
     public void regressTheAccount_jsonObject()
     {
@@ -74,6 +79,10 @@ public class AssertCollectorTest
                                             + "\n     but: was <false>" ) );
         }
     }
+
+    //###################################################################################################################
+    //#                                                                                                                 #
+    //###################################################################################################################
 
     @Test
     public void verifyThatWithMessage_test()
