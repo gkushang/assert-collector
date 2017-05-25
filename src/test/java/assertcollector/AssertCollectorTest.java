@@ -87,51 +87,52 @@ public class AssertCollectorTest
     @Test
     public void verifyThatWithMessage_test()
     {
-        verifyThat( "error message", "Hello", is( "Hello" ) );
+        verifyThat( "Email is invalid", account.email, is( "email@email.com" ) );
         throwAnyFailures();
     }
 
     @Test( expected = AssertionError.class )
     public void throwAnyFailures_test()
     {
-        verifyThat( "error message", 3, is( 2 ) );
+        verifyThat( "Fist name is invalid", account.firstName, is( "valid" ) );
         throwAnyFailures();
     }
 
     @Test
     public void throwAnyFailuresMessage_test()
     {
-        verifyThat( "Greeting is incorrect", "Hi, there", is( "Hello, there" ) );
+        verifyThat( "MustBeTrue should be true", account.mustBeTrue, is( true ) );
         try
         {
             throwAnyFailures();
         }
         catch ( AssertionError e )
         {
-            assertThat( e.getMessage().trim(), is( "Number of failure(s) : 1\n" + "\n" + "Greeting is incorrect\n"
-                            + "Expected: is \"Hello, there\"\n" + "     but: was \"Hi, there\"" ) );
+            assertThat( e.getMessage().trim(),
+                            is( "Number of failure(s) : 1\n\nMustBeTrue should be true\nExpected: is <true>\n"
+                                            + "     but: was <false>" ) );
         }
     }
 
     @Test
     public void verifyThatWithoutMessage_test()
     {
-        verifyThat( "Hello", is( "Hello" ) );
+        verifyThat( "ABC", is( "ABC" ) );
         throwAnyFailures();
     }
 
     @Test
     public void getNumberOfErrors_noErrorsTest()
     {
-        verifyThat( "Hello", is( "Hello" ) );
+        verifyThat( "ABC", is( "ABC" ) );
         assertThat( AssertCollector.getNumberOfErrors(), is( 0 ) );
     }
 
     @Test
     public void getNumberOfErrors_moreThanOneErrorsTest()
     {
-        verifyThat( "Hello", is( "Hi" ) );
-        verifyThat( "Awesome", is( "is not awesome" ) );
+        verifyThat( "ABC", is( "XYZ" ) );
+        verifyThat( 123, is( 102030 ) );
         assertThat( AssertCollector.getNumberOfErrors(), is( 2 ) );
     }
 

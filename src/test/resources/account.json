@@ -2,6 +2,6 @@
   "firstName": "invalid",
   "lastName": "valid",
   "username": "invalid",
-  "email": "invalid@email.com",
+  "email": "email@email.com",
   "mustBeTrue": false
 }
