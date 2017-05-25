@@ -33,8 +33,6 @@
 
 
     <build>
-
-        <!-- PLUGINS FOR MANAGING PLUGINS -->
         <pluginManagement>
             <plugins>
                 <plugin>
