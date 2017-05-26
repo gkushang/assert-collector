@@ -58,8 +58,6 @@ public void tearDown()
 
 -------------------------
 
-###### _happy testing!_
-
 
 [travis-shield]: https://img.shields.io/travis/google/truth.png
 [travis-link]: https://travis-ci.org/google/truth
