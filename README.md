@@ -12,7 +12,7 @@ Do you have late regressions? What if your regression finds more bugs from a sin
 
 Traditional Assertions exit from your scenario when it finds the first bug, but Assert Collector does not. It finds a bug and continues to find more bugs. The best use cases are the verifications of UI & JSON Objects!
 
-Assert Collector builds on top of [Hamcrest Matchers]([hamcrest-matchers) interface.
+Assert Collector is built on top of [Hamcrest Matchers]([hamcrest-matchers) interface.
       
 
 ## How to use?
