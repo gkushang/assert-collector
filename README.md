@@ -8,7 +8,7 @@
 
 ## What is Assert Collector?
 
-Do you often find more bugs after you fix one of the bugs and rerun the regression, late regressions? What if your regression finds more bugs from a single run?  Assert Collector does it. 
+Do you have late regressions? What if your regression finds more bugs from a single run?  Assert Collector does it. 
 
 Traditional Assertions exit from your scenario when it finds the first bug, but Assert Collector does not. It finds a bug and continues to find more bugs. The best use cases are the verifications of UI & JSON Objects!
 
