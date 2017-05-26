@@ -28,7 +28,7 @@ Step 1: `veirfyThat` in-place of `assertThat` of Hamcrest. The rest of the inter
    
 ```
 
-Step 2: `throwAnyFailures` will throw all the failures at once, and whenever required
+Step 2: `throwAnyFailures` will throw all the failures at once, if there were any. Use it whenever required.
 
 ```aidl
    
@@ -40,7 +40,7 @@ Step 2: `throwAnyFailures` will throw all the failures at once, and whenever req
    
 ```
 
-Step 3: Put `throwAnyFailures` in `@After` hook. All remaining failures will be thrown by After hook. 
+Step 3: Put `throwAnyFailures` in `@After` hook. All remaining failures will be thrown by After hook, if there were any. 
 
 ```aidl
 
