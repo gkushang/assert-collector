@@ -20,7 +20,7 @@ Assert Collector is built on top of [Hamcrest Matchers]([hamcrest-matchers) inte
 Please see [the detailed example test-case](https://github.com/gkushang/assert-collector/blob/master/src/test/java/assertcollector/AssertCollectorTest.java#L32-L86) for more info.
 
 
-Step 1: `veirfyThat` in-place of `assertThat` of Hamcrest. The rest of the interface is Hamcrest.
+Step 1: Import AssertCollector to your workspace. Use `veirfyThat` in-place of `assertThat` of Hamcrest. The rest of the interface is Hamcrest.
 
 ```aidl
    
@@ -34,7 +34,7 @@ Step 2: `throwAnyFailures` will throw all the failures at once, if there were an
    
     verifyThat( "Firstname is invalid", something.getFirstname(), is( "validFirstname" ) );
     verifyThat( "Lastname is invalid", something.getLastname(), is( "invalidLastname" ) );
-    verifyThat( "Username is invalid", something.getusername(), is( "invalidUsername" ) );
+    verifyThat( "Username is invalid", something.getUsername(), is( "invalidUsername" ) );
     
     throwAnyFailures(); // will throw two failures. Lastname is invalid & Username is invalid
    
