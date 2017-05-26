@@ -10,18 +10,18 @@
 
 Do you often find more bugs after you fix one of the bugs and rerun the regression, late regressions? What if your regression finds more bugs from a single run?  Assert Collector does it. 
 
-Traditional Assertions exit from your scenario execution when it finds the first bug, but Assert Collector does not. It finds a bug and continues to find more bugs. The best use cases are the verifications of UI & JSON Objects!
+Traditional Assertions exit from your scenario when it finds the first bug, but Assert Collector does not. It finds a bug and continues to find more bugs. The best use cases are the verifications of UI & JSON Objects!
 
 Assert Collector builds on top of [Hamcrest Matchers]([hamcrest-matchers) interface.
       
-      
+--------------------      
 
 ### How to use?
 
-Please see [the detailed example](https://github.com/gkushang/assert-collector/blob/master/src/test/java/assertcollector/AssertCollectorTest.java#L32-L86) for more info.
+Please see [the detailed example test-case](https://github.com/gkushang/assert-collector/blob/master/src/test/java/assertcollector/AssertCollectorTest.java#L32-L86) for more info.
 
 
-Step 1: `veirfyThat` in-place of `assertThat` of Hamcrest. The rest of the interface is same as Hamcrest.
+Step 1: `veirfyThat` in-place of `assertThat` of Hamcrest. The rest of the interface is Hamcrest.
 
 ```aidl
    
@@ -37,11 +37,11 @@ Step 2: `throwAnyFailures` will throw all the failures at once, and whenever req
     verifyThat( "Lastname is invalid", something.getLastname(), is( "invalidLastname" ) );
     verifyThat( "Username is invalid", something.getusername(), is( "invalidUsername" ) );
     
-    throwAnyFailures();
+    throwAnyFailures(); // will throw two failures. Lastname is invalid & Username is invalid
    
 ```
 
-Step 3: Put `throwAnyFailures` in `@After` hook.
+Step 3: Put `throwAnyFailures` in `@After` hook. All remaining failures will be thrown by After hook. 
 
 ```aidl
 
@@ -56,6 +56,9 @@ public void tearDown()
 
 ```
 
+-------------------------
+
+###### _happy testing!_
 
 
 [travis-shield]: https://img.shields.io/travis/google/truth.png
