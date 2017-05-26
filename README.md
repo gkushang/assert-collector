@@ -14,7 +14,6 @@ Traditional Assertions exit from your scenario when it finds the first bug, but 
 
 Assert Collector builds on top of [Hamcrest Matchers]([hamcrest-matchers) interface.
       
---------------------      
 
 ## How to use?
 
@@ -56,7 +55,6 @@ public void tearDown()
 
 ```
 
--------------------------
 
 
 [travis-shield]: https://img.shields.io/travis/google/truth.png
