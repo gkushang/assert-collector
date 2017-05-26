@@ -6,7 +6,7 @@
 [![Build Status][travis-shield]][travis-link] [![Coverage Status][coveralls-shield]][coveralls-link]
 
 
-### What is Assert Collector?
+## What is Assert Collector?
 
 Do you often find more bugs after you fix one of the bugs and rerun the regression, late regressions? What if your regression finds more bugs from a single run?  Assert Collector does it. 
 
@@ -16,7 +16,7 @@ Assert Collector builds on top of [Hamcrest Matchers]([hamcrest-matchers) interf
       
 --------------------      
 
-### How to use?
+## How to use?
 
 Please see [the detailed example test-case](https://github.com/gkushang/assert-collector/blob/master/src/test/java/assertcollector/AssertCollectorTest.java#L32-L86) for more info.
 
