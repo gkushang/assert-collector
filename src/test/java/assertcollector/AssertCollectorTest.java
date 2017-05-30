@@ -125,14 +125,14 @@ public class AssertCollectorTest
     }
 
     @Test
-    public void getNumberOfErrors_noErrorsTest()
+    public void getNumberOfErrorsNoErrorsTest()
     {
         verifyThat( "ABC", is( "ABC" ) );
         assertThat( AssertCollector.getNumberOfErrors(), is( 0 ) );
     }
 
     @Test
-    public void getNumberOfErrors_moreThanOneErrorsTest()
+    public void getNumberOfErrorsMoreThanOneErrorsTest()
     {
         verifyThat( "ABC", is( "XYZ" ) );
         verifyThat( 123, is( 102030 ) );
@@ -140,7 +140,7 @@ public class AssertCollectorTest
     }
 
     @Test
-    public void getNumberOfErrors_duplicateErrorsShouldCountTest()
+    public void getNumberOfErrorsDuplicateErrorsShouldCountTest()
     {
         verifyThat( "DRY", is( "Keep it DRY" ) );
         verifyThat( "DRY", is( "Keep it DRY" ) );
