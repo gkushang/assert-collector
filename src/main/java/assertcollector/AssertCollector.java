@@ -22,7 +22,7 @@ public final class AssertCollector
         verifyThat( StringUtils.EMPTY, value, matcher );
     }
 
-    static <T> void verifyThat( final String reason, final T value, final Matcher<T> matcher )
+    static public <T> void verifyThat( final String reason, final T value, final Matcher<T> matcher )
     {
         try
         {

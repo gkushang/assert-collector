@@ -3,7 +3,7 @@
 ***Optimize bug-find rate, Regress Less and Execute Fast***
 
 
-[![Build Status][travis-shield]][travis-link] [![Coverage Status][coveralls-shield]][coveralls-link]
+[![Build Status][travis-shield]][travis-link] [![Coverage Status][coveralls-shield]][coveralls-link] [![Codacy Badge](https://api.codacy.com/project/badge/Grade/57cb4fb345fb44b8b9082e35e5ce996d)](https://www.codacy.com/app/gkushang/assert-collector?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=gkushang/assert-collector&amp;utm_campaign=Badge_Grade)
 
 
 ## What is Assert Collector?
@@ -12,9 +12,8 @@ Do you have late regressions? What if your regression finds more bugs from a sin
 
 Traditional Assertions exit from your scenario when it finds the first bug, but Assert Collector does not. It finds a bug and continues to find more bugs. The best use cases are the verifications of UI & JSON Objects!
 
-Assert Collector is built on top of [Hamcrest Matchers]([hamcrest-matchers) interface.
+Assert Collector is built on top of [Hamcrest Matchers](hamcrest-matchers) interface.
       
-
 ## How to use?
 
 Please see [the detailed example test-case](https://github.com/gkushang/assert-collector/blob/master/src/test/java/assertcollector/AssertCollectorTest.java#L32-L86) for more info.

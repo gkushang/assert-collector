@@ -21,7 +21,7 @@ public class AssertCollectorTest
     private Account account;
 
     @Before
-    public void setup()
+    public void setUp()
                     throws IOException
     {
         ObjectMapper mapper = new ObjectMapper();
@@ -40,7 +40,7 @@ public class AssertCollectorTest
     //###################################################################################################################
 
     @Test
-    public void regressTheAccount_jsonObject()
+    public void regressTheAccountJsonObject()
     {
         // ---- START the execution (your regression suite)
 
@@ -85,21 +85,21 @@ public class AssertCollectorTest
     //###################################################################################################################
 
     @Test
-    public void verifyThatWithMessage_test()
+    public void verifyThatWithMessageTest()
     {
         verifyThat( "Email is invalid", account.email, is( "email@email.com" ) );
         throwAnyFailures();
     }
 
     @Test( expected = AssertionError.class )
-    public void throwAnyFailures_test()
+    public void throwAnyFailuresTest()
     {
         verifyThat( "Fist name is invalid", account.firstName, is( "valid" ) );
         throwAnyFailures();
     }
 
     @Test
-    public void throwAnyFailuresMessage_test()
+    public void throwAnyFailuresMessageTest()
     {
         verifyThat( "MustBeTrue should be true", account.mustBeTrue, is( true ) );
         try
@@ -115,10 +115,13 @@ public class AssertCollectorTest
     }
 
     @Test
-    public void verifyThatWithoutMessage_test()
+    public void verifyThatWithoutMessageTest()
     {
+
         verifyThat( "ABC", is( "ABC" ) );
+
         throwAnyFailures();
+
     }
 
     @Test
